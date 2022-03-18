@@ -11,15 +11,7 @@ public class FourBallClass extends PApplet {
 
     public static void main(String[] args) {
         PApplet.main("FourBallClass", args);
-        ballCollectionInitialisation();
     }
-
-    private static void ballCollectionInitialisation() {
-        for (int index = 0; index < 4; index++) {
-            ballCollection.add(new Ball(1, (HEIGHT*(index+1))/5, 15));
-        }
-    }
-
 
     @Override
     public void settings() {
@@ -28,11 +20,19 @@ public class FourBallClass extends PApplet {
     }
 
     @Override
-    public void draw() {
-        for (int index = 0; index < 4; index++) {
-            Ball ball = ballCollection.get(index);
-            ball.display(index+1,app);
+    public void setup() {
+        for (int index = 1; index < 5; index++) {
+            int speed = 1;
+            int height = (HEIGHT * index) / 5;
+            int diameter = 15;
+            ballCollection.add(new Ball(index, speed, height, diameter));
+        }
+    }
 
+    @Override
+    public void draw() {
+        for (Ball ball:ballCollection) {
+            ball.display(app);
         }
     }
 

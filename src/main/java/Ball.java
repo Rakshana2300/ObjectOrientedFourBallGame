@@ -1,19 +1,21 @@
 import processing.core.PApplet;
 
 public class Ball {
-    private int position;
+    private int index;
+    private int speed;
     private int height;
     private int diameter;
 
-    public Ball(int position, int height, int diameter) {
-        this.position = position;
+    public Ball(int index, int speed, int height, int diameter) {
+        this.index = index;
+        this.speed = speed;
         this.height = height;
         this.diameter = diameter;
     }
 
-    public void display(int index, PApplet applet){
-        applet.ellipse(position, height, diameter, diameter);
-        position+=index;
+    public void display(PApplet applet){
+        applet.ellipse(speed, height, diameter, diameter);
+        speed+=index;
     }
 
 }
